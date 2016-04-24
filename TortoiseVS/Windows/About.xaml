@@ -7,7 +7,7 @@
         <TextBlock Text="TortoiseVS" HorizontalAlignment="Left" FontWeight="DemiBold"/>
         <TextBlock Text="Version 0.1" HorizontalAlignment="Left" />
         <TextBlock Text=""></TextBlock>
-        <TextBlock Text="Created by Jan Magerl" HorizontalAlignment="Right"/>
+        <TextBlock Text="Copyright (c) 2016 Jan Magerl" HorizontalAlignment="Right"/>
         <TextBlock HorizontalAlignment="Right">
             <Hyperlink NavigateUri="http://www.magerl-it.de" RequestNavigate="HyperlinkRequestNavigate">
                 <TextBlock Text="Magerl-IT"  />
