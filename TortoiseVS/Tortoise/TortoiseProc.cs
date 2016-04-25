@@ -30,14 +30,17 @@ namespace TortoiseVS.Tortoise
             const string keyPath = @"Software\TortoiseSVN";
             const string valueName = "ProcPath";
 
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, Environment.MachineName, RegistryView.Registry64).OpenSubKey(keyPath); 
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, Environment.MachineName, RegistryView.Registry64).OpenSubKey(keyPath);
             string procPath = key.GetValue(valueName).ToString();
-            if (!string.IsNullOrEmpty(procPath) && File.Exists(procPath)) return procPath;
+            if (!string.IsNullOrEmpty(procPath) && File.Exists(procPath))
+                return procPath;
 
             key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, Environment.MachineName, RegistryView.Registry32).OpenSubKey(keyPath);
             procPath = key.GetValue(valueName).ToString();
-            if (!string.IsNullOrEmpty(procPath) && File.Exists(procPath)) return procPath;
-            else return string.Empty;
+            if (!string.IsNullOrEmpty(procPath) && File.Exists(procPath))
+                return procPath;
+            else
+                return string.Empty;
         }
 
         internal void Blame(string file, int line)
@@ -47,7 +50,7 @@ namespace TortoiseVS.Tortoise
 
         internal Task Update(string path)
         {
-            return StartAsync($"/command:update /closeonend:3", path);
+            return StartAsync($"/command:update /closeonend:2", path);
         }
 
         private void Start(string command, string file)
@@ -68,7 +71,7 @@ namespace TortoiseVS.Tortoise
             {
                 throw new Exception("to many args");
             }
-            
+
             Process process = new Process();
             process.EnableRaisingEvents = true;
             process.StartInfo.FileName = path;
