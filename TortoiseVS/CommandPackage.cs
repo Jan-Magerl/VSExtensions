@@ -78,6 +78,7 @@ namespace TortoiseVS
             TortoiseVS.Commands.UnloadUpdateCommand.Initialize(this);
             TortoiseVS.Commands.UnloadUpdateBuild.Initialize(this);
             TortoiseVS.Commands.AboutCommand.Initialize(this);
+            TortoiseVS.Commands.UpdateRestartCommand.Initialize(this);
         }
 
         #endregion

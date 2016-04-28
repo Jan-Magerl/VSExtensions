@@ -59,6 +59,7 @@
     <Compile Include="Commands\LogCommand.cs" />
     <Compile Include="Commands\UnloadUpdateBuild.cs" />
     <Compile Include="Commands\UnloadUpdateCommand.cs" />
+    <Compile Include="Commands\UpdateRestartCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VSHelper\Studio.cs" />
     <Compile Include="Tortoise\TortoiseProc.cs" />
@@ -197,6 +198,7 @@
     <Content Include="Commands\Resources\LogCommand.png" />
     <Content Include="Commands\Resources\UnloadUpdateBuild.png" />
     <Content Include="Commands\Resources\UnloadUpdateCommand.png" />
+    <Content Include="Commands\Resources\UpdateRestartCommand.png" />
     <Content Include="Resources\BlameCommand.png" />
     <Content Include="Resources\BlameCommandPackage.ico" />
   </ItemGroup>

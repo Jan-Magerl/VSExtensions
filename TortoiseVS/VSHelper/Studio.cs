@@ -10,6 +10,8 @@ using System.Linq;
 
 namespace TortoiseVS.VSHelper
 {
+    using Process = System.Diagnostics.Process;
+
     internal class Studio
     {
         private static readonly Lazy<Studio> instance = new Lazy<Studio>(() => new Studio());
@@ -104,6 +106,16 @@ namespace TortoiseVS.VSHelper
         public void BuildSolution()
         {
             DTE2.Solution.SolutionBuild.Build();
+        }
+
+        internal void Restart(string file)
+        {
+            Process process = new Process();
+            process.EnableRaisingEvents = true;
+            process.StartInfo.FileName = file;
+            process.StartInfo.UseShellExecute = true;
+            process.Start();
+            DTE2.Quit();
         }
     }
 }

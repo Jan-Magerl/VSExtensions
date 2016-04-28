@@ -10,6 +10,7 @@ namespace TortoiseVS.Windows
         public About()
         {
             InitializeComponent();
+            TextBlockVersion.Text = "Version " + typeof(About).Assembly.GetName().Version;
         }
 
         private void HyperlinkRequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
