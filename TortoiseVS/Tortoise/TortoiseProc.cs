@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TortoiseVS.Tortoise
 {
+    [Immutable]
     class TortoiseProc
     {
         private static readonly Lazy<TortoiseProc> instance = new Lazy<TortoiseProc>(() => new TortoiseProc());

@@ -60,6 +60,7 @@
     <Compile Include="Commands\UnloadUpdateBuild.cs" />
     <Compile Include="Commands\UnloadUpdateCommand.cs" />
     <Compile Include="Commands\UpdateRestartCommand.cs" />
+    <Compile Include="ImmutableAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VSHelper\Studio.cs" />
     <Compile Include="Tortoise\TortoiseProc.cs" />

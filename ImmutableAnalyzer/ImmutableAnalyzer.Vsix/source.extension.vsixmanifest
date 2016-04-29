@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="b70d6965-6a51-4153-af4d-e7fb3c29a69f" Version="0.1" Language="en-US" Publisher="Jan Magerl"/>
+    <DisplayName>ImmutableAnalyzer</DisplayName>
+    <Description xml:space="preserve">ImmutableAnalyzer analyses if a Class with [Immutable] Attribute are [Immutable]
+This is a diagnostic extension for the .NET Compiler Platform ("Roslyn").</Description>
+    <License>LICENSE</License>
+    <Tags>Immutable, Analyzer</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Version="[14.0,]" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="ImmutableAnalyzer" Path="|ImmutableAnalyzer|"/>
+    <Asset Type="Microsoft.VisualStudio.Analyzer" d:Source="Project" d:ProjectName="ImmutableAnalyzer" Path="|ImmutableAnalyzer|"/>
+  </Assets>
+</PackageManifest>

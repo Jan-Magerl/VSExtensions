@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TortoiseVS", "TortoiseVS\TortoiseVS.csproj", "{45D9965E-6705-439C-B6B1-84A1D2896D80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmutableAnalyzer", "ImmutableAnalyzer\ImmutableAnalyzer\ImmutableAnalyzer.csproj", "{AD80CC9E-B418-49F8-8505-C93DC20D1252}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmutableAnalyzer.Test", "ImmutableAnalyzer\ImmutableAnalyzer.Test\ImmutableAnalyzer.Test.csproj", "{64ACE6A8-E9BB-4260-B42D-C449E5C57D3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmutableAnalyzer.Vsix", "ImmutableAnalyzer\ImmutableAnalyzer.Vsix\ImmutableAnalyzer.Vsix.csproj", "{E17E8487-08D7-4A9D-9745-E0424B3CF190}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{45D9965E-6705-439C-B6B1-84A1D2896D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45D9965E-6705-439C-B6B1-84A1D2896D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45D9965E-6705-439C-B6B1-84A1D2896D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD80CC9E-B418-49F8-8505-C93DC20D1252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD80CC9E-B418-49F8-8505-C93DC20D1252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD80CC9E-B418-49F8-8505-C93DC20D1252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD80CC9E-B418-49F8-8505-C93DC20D1252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64ACE6A8-E9BB-4260-B42D-C449E5C57D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64ACE6A8-E9BB-4260-B42D-C449E5C57D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64ACE6A8-E9BB-4260-B42D-C449E5C57D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64ACE6A8-E9BB-4260-B42D-C449E5C57D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E17E8487-08D7-4A9D-9745-E0424B3CF190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E17E8487-08D7-4A9D-9745-E0424B3CF190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E17E8487-08D7-4A9D-9745-E0424B3CF190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E17E8487-08D7-4A9D-9745-E0424B3CF190}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
