@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TortoiseVS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Magerl-IT")]
 [assembly: AssemblyProduct("TortoiseVS")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
