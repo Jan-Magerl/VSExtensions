@@ -4,17 +4,15 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-using System;
-using System.ComponentModel.Design;
-using System.Globalization;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using TortoiseVS.VSHelper;
-using TortoiseVS.Tortoise;
-using System.IO;
-
 namespace TortoiseVS.Commands
 {
+    using System;
+    using System.ComponentModel.Design;
+    using System.IO;
+    using Microsoft.VisualStudio.Shell;
+    using TortoiseVS.Tortoise;
+    using TortoiseVS.VSHelper;
+
     /// <summary>
     /// Command handler
     /// </summary>

@@ -4,19 +4,14 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-using System;
-using System.ComponentModel.Design;
-using System.Globalization;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using TortoiseVS.Tortoise;
-using System.Collections.Generic;
-using System.Linq;
-using EnvDTE;
-using TortoiseVS.VSHelper;
-
 namespace TortoiseVS.Commands
 {
+    using System;
+    using System.ComponentModel.Design;
+    using Microsoft.VisualStudio.Shell;
+    using TortoiseVS.Tortoise;
+    using TortoiseVS.VSHelper;
+
     /// <summary>
     /// Command handler
     /// </summary>
@@ -101,7 +96,7 @@ namespace TortoiseVS.Commands
             string file;
             if (Studio.Instance.IsFileSelectedInSolutionExplorer(out file))
             {
-                TortoiseProc.Instance.Blame(file,0);
+                TortoiseProc.Instance.Blame(file, 0);
             }
         }
     }

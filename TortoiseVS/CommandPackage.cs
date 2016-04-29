@@ -4,23 +4,14 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-using System;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Runtime.InteropServices;
-using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.OLE.Interop;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using Microsoft.Win32;
-using EnvDTE80;
-using EnvDTE;
-using TortoiseVS.VSHelper;
-
 namespace TortoiseVS
 {
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Runtime.InteropServices;
+    using Microsoft.VisualStudio.Shell;
+    using TortoiseVS.VSHelper;
+
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
     /// </summary>
@@ -51,18 +42,15 @@ namespace TortoiseVS
         public const string PackageGuidString = "534d4992-b99b-4e4d-9d14-0ba5eb516fcd";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BlameCommand"/> class.
+        /// Initializes a new instance of the <see cref="CommandPackage"/> class.
         /// </summary>
         public CommandPackage()
         {
-            
             // Inside this method you can place any initialization code that does not require
             // any Visual Studio service because at this point the package object is created but
             // not sited yet inside Visual Studio environment. The place to do all the other
             // initialization is the Initialize method.
         }
-
-        #region Package Members
 
         /// <summary>
         /// Initialization of the package; this method is called right after the package is sited, so this is the place
@@ -80,7 +68,5 @@ namespace TortoiseVS
             TortoiseVS.Commands.AboutCommand.Initialize(this);
             TortoiseVS.Commands.UpdateRestartCommand.Initialize(this);
         }
-
-        #endregion
     }
 }

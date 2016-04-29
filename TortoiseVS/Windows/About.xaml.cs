@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.PlatformUI;
-
-namespace TortoiseVS.Windows
+﻿namespace TortoiseVS.Windows
 {
+    using Microsoft.VisualStudio.PlatformUI;
+
     /// <summary>
     /// Interaction logic for About.xaml
     /// </summary>

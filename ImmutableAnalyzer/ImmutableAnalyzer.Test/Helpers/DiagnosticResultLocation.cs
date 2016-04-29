@@ -1,8 +1,8 @@
-﻿using Microsoft.CodeAnalysis;
-using System;
-
-namespace TestHelper
+﻿namespace TestHelper
 {
+    using System;
+    using Microsoft.CodeAnalysis;
+
     /// <summary>
     /// Location where the diagnostic appears, as determined by path, line number, and column number.
     /// </summary>
@@ -26,7 +26,9 @@ namespace TestHelper
         }
 
         public string Path { get; }
+
         public int Line { get; }
+
         public int Column { get; }
     }
 
@@ -64,7 +66,7 @@ namespace TestHelper
         {
             get
             {
-                return this.Locations.Length > 0 ? this.Locations[0].Path : "";
+                return this.Locations.Length > 0 ? this.Locations[0].Path : string.Empty;
             }
         }
 

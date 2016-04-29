@@ -4,20 +4,14 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-using System;
-using System.ComponentModel.Design;
-using System.Globalization;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using EnvDTE80;
-using EnvDTE;
-using System.Linq;
-using System.Collections.Generic;
-using TortoiseVS.Tortoise;
-using TortoiseVS.VSHelper;
-
 namespace TortoiseVS.Commands
 {
+    using System;
+    using System.ComponentModel.Design;
+    using Microsoft.VisualStudio.Shell;
+    using TortoiseVS.Tortoise;
+    using TortoiseVS.VSHelper;
+
     /// <summary>
     /// Command handler
     /// </summary>
@@ -102,7 +96,6 @@ namespace TortoiseVS.Commands
             string file = Studio.DTE2.ActiveDocument.FullName;
             int line = Studio.Instance.Line;
             TortoiseProc.Instance.Blame(file, line);
-            
         }
     }
 }

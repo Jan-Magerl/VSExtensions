@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmutableAnalyzer.Test", "I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmutableAnalyzer.Vsix", "ImmutableAnalyzer\ImmutableAnalyzer.Vsix\ImmutableAnalyzer.Vsix.csproj", "{E17E8487-08D7-4A9D-9745-E0424B3CF190}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rules", "Rules", "{CA40EAC0-8825-4B37-89A5-495874198EFF}"
+	ProjectSection(SolutionItems) = preProject
+		Rules\VSExtensions.ruleset = Rules\VSExtensions.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

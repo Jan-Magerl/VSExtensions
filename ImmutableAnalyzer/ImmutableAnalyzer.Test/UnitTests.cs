@@ -1,27 +1,25 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CodeFixes;
-using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using TestHelper;
-using ImmutableAnalyzer;
-
-namespace ImmutableAnalyzer.Test
+﻿namespace ImmutableAnalyzer.Test
 {
-    [TestClass]
-    public class UnitTest : CodeFixVerifier
-    {
+    using ImmutableAnalyzer;
+    using Microsoft.CodeAnalysis;
+    using Microsoft.CodeAnalysis.CodeFixes;
+    using Microsoft.CodeAnalysis.Diagnostics;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TestHelper;
 
-        //No diagnostics expected to show up
+    [TestClass]
+    public class UnitTests : CodeFixVerifier
+    {
+        // No diagnostics expected to show up
         [TestMethod]
         public void TestMethod1()
         {
-            var test = @"";
+            var test = string.Empty;
 
             VerifyCSharpDiagnostic(test);
         }
 
-        //Diagnostic and CodeFix both triggered and checked for
+        // Diagnostic and CodeFix both triggered and checked for
         [TestMethod]
         public void TestMethod2()
         {
@@ -42,10 +40,11 @@ namespace ImmutableAnalyzer.Test
             var expected = new DiagnosticResult
             {
                 Id = "ImmutableAnalyzer",
-                Message = String.Format("Type name '{0}' contains lowercase letters", "TypeName"),
+                Message = string.Format("Type name '{0}' contains lowercase letters", "TypeName"),
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
-                    new[] {
+                    new[]
+                    {
                             new DiagnosticResultLocation("Test0.cs", 11, 15)
                         }
             };

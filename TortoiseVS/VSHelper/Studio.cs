@@ -1,47 +1,58 @@
-﻿using EnvDTE;
-using EnvDTE80;
-using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-
-namespace TortoiseVS.VSHelper
+﻿namespace TortoiseVS.VSHelper
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using EnvDTE;
+    using EnvDTE80;
+    using Microsoft.VisualStudio;
+    using Microsoft.VisualStudio.Shell;
+    using Microsoft.VisualStudio.Shell.Interop;
     using Process = System.Diagnostics.Process;
 
     internal class Studio
     {
-        private static readonly Lazy<Studio> instance = new Lazy<Studio>(() => new Studio());
+        private static readonly Lazy<Studio> InstanceValue = new Lazy<Studio>(() => new Studio());
 
-        public static DTE2 DTE2;
-        public static Package Package;
+        private static DTE2 dTE2;
+        private static Package package;
 
         private Studio()
         {
-        }
-
-        public static void Init(Package package)
-        {
-            Package = package;
-            DTE2 = (DTE2)GetService(typeof(DTE));
-
-
-        }
-
-        private static object GetService(Type type)
-        {
-            var package = Package as IServiceProvider;
-            return package.GetService(type);
         }
 
         public static Studio Instance
         {
             get
             {
-                return instance.Value;
+                return InstanceValue.Value;
+            }
+        }
+
+        public static DTE2 DTE2
+        {
+            get
+            {
+                return dTE2;
+            }
+
+            set
+            {
+                dTE2 = value;
+            }
+        }
+
+        public static Package Package
+        {
+            get
+            {
+                return package;
+            }
+
+            set
+            {
+                package = value;
             }
         }
 
@@ -51,6 +62,12 @@ namespace TortoiseVS.VSHelper
             {
                 return (DTE2.ActiveDocument.Selection as TextSelection).ActivePoint.Line;
             }
+        }
+
+        public static void Init(Package package)
+        {
+            Package = package;
+            DTE2 = (DTE2)GetService(typeof(DTE));
         }
 
         public IEnumerable<string> GetSelectedFilesInSolutionExplorer()
@@ -75,17 +92,17 @@ namespace TortoiseVS.VSHelper
 
             if (DTE2.SelectedItems.Count > 0)
             {
-                selectedProject = (DTE2.SelectedItems.Item(1)).Project;
+                selectedProject = DTE2.SelectedItems.Item(1).Project;
             }
             if (selectedProject != null)
             {
                 IVsSolution solutionService = GetService(typeof(SVsSolution)) as IVsSolution;
 
-                Debug.Assert(solutionService != null);
+                Debug.Assert(solutionService != null, "solutionService is null");
 
                 IVsHierarchy selectedHierarchy;
                 ErrorHandler.ThrowOnFailure(solutionService.GetProjectOfUniqueName(selectedProject.UniqueName, out selectedHierarchy));
-                Debug.Assert(selectedHierarchy != null);
+                Debug.Assert(selectedHierarchy != null, "selectedHierarchy is null");
 
                 ErrorHandler.ThrowOnFailure(solutionService.CloseSolutionElement((uint)__VSSLNCLOSEOPTIONS.SLNCLOSEOPT_UnloadProject, selectedHierarchy, 0));
             }
@@ -116,6 +133,12 @@ namespace TortoiseVS.VSHelper
             process.StartInfo.UseShellExecute = true;
             process.Start();
             DTE2.Quit();
+        }
+
+        private static object GetService(Type type)
+        {
+            var package = Package as IServiceProvider;
+            return package.GetService(type);
         }
     }
 }

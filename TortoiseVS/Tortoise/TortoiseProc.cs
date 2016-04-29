@@ -1,47 +1,28 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace TortoiseVS.Tortoise
+﻿namespace TortoiseVS.Tortoise
 {
-    [Immutable]
-    class TortoiseProc
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Threading.Tasks;
+    using Microsoft.Win32;
+
+    internal class TortoiseProc
     {
-        private static readonly Lazy<TortoiseProc> instance = new Lazy<TortoiseProc>(() => new TortoiseProc());
+        private static readonly Lazy<TortoiseProc> InstanceValue = new Lazy<TortoiseProc>(() => new TortoiseProc());
 
-        public static TortoiseProc Instance
-        {
-            get
-            {
-                return instance.Value;
-            }
-        }
-
-        string path;
+        private string path;
 
         private TortoiseProc()
         {
             path = FindPath();
         }
 
-        private string FindPath()
+        public static TortoiseProc Instance
         {
-            const string keyPath = @"Software\TortoiseSVN";
-            const string valueName = "ProcPath";
-
-            RegistryKey key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, Environment.MachineName, RegistryView.Registry64).OpenSubKey(keyPath);
-            string procPath = key.GetValue(valueName).ToString();
-            if (!string.IsNullOrEmpty(procPath) && File.Exists(procPath))
-                return procPath;
-
-            key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, Environment.MachineName, RegistryView.Registry32).OpenSubKey(keyPath);
-            procPath = key.GetValue(valueName).ToString();
-            if (!string.IsNullOrEmpty(procPath) && File.Exists(procPath))
-                return procPath;
-            else
-                return string.Empty;
+            get
+            {
+                return InstanceValue.Value;
+            }
         }
 
         internal void Blame(string file, int line)
@@ -52,6 +33,30 @@ namespace TortoiseVS.Tortoise
         internal Task Update(string path)
         {
             return StartAsync($"/command:update /closeonend:2", path);
+        }
+
+        private string FindPath()
+        {
+            const string keyPath = @"Software\TortoiseSVN";
+            const string valueName = "ProcPath";
+
+            RegistryKey key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, Environment.MachineName, RegistryView.Registry64).OpenSubKey(keyPath);
+            string procPath = key.GetValue(valueName).ToString();
+            if (!string.IsNullOrEmpty(procPath) && File.Exists(procPath))
+            {
+                return procPath;
+            }
+
+            key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, Environment.MachineName, RegistryView.Registry32).OpenSubKey(keyPath);
+            procPath = key.GetValue(valueName).ToString();
+            if (!string.IsNullOrEmpty(procPath) && File.Exists(procPath))
+            {
+                return procPath;
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
 
         private void Start(string command, string file)
