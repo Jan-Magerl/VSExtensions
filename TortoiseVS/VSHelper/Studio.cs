@@ -15,7 +15,7 @@
     {
         private static readonly Lazy<Studio> InstanceValue = new Lazy<Studio>(() => new Studio());
 
-        private static DTE2 dTE2;
+        private static DTE2 dTe2;
         private static Package package;
 
         private Studio()
@@ -34,12 +34,12 @@
         {
             get
             {
-                return dTE2;
+                return dTe2;
             }
 
             set
             {
-                dTE2 = value;
+                dTe2 = value;
             }
         }
 
@@ -60,13 +60,18 @@
         {
             get
             {
-                return (DTE2.ActiveDocument.Selection as TextSelection).ActivePoint.Line;
+                TextSelection textSelection = DTE2.ActiveDocument.Selection as TextSelection;
+                if (textSelection != null)
+                {
+                    return textSelection.ActivePoint.Line;
+                }
+                return 0;
             }
         }
 
-        public static void Init(Package package)
+        public static void Init(Package pk)
         {
-            Package = package;
+            Package = pk;
             DTE2 = (DTE2)GetService(typeof(DTE));
         }
 
@@ -137,8 +142,8 @@
 
         private static object GetService(Type type)
         {
-            var package = Package as IServiceProvider;
-            return package.GetService(type);
+            var pk = Package as IServiceProvider;
+            return pk.GetService(type);
         }
     }
 }
