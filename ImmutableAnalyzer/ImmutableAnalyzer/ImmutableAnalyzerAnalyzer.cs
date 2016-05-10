@@ -68,7 +68,7 @@
                         context.ReportDiagnostic(diagnostic);
                     }
                 }
-                else
+                else if (!methodSymbol.IsStatic)
                 {
                     if (methodSymbol.ContainingType.GetAttributes().Any(a => a.AttributeClass.Name == ImmutableAttributeName))
                     {
