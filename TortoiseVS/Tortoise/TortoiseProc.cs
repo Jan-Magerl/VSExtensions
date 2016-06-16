@@ -30,6 +30,11 @@
             Start($"/command:blame /line:{line}", file);
         }
 
+        internal void Log(string file)
+        {
+            Start($"/command:log", file);
+        }
+
         internal Task Update(string path)
         {
             return StartAsync($"/command:update /closeonend:2", path);
@@ -106,5 +111,7 @@
             }
             return tcs.Task;
         }
+
+
     }
 }

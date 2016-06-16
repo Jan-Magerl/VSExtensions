@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="55377fa4-6dde-4e24-83c5-29270962686a" Version="0.2" Language="en-US" Publisher="Jan Magerl" />
+    <Identity Id="55377fa4-6dde-4e24-83c5-29270962686a" Version="0.3" Language="en-US" Publisher="Jan Magerl" />
     <DisplayName>TortoiseVS</DisplayName>
     <Description xml:space="preserve">Lightweight Extension to use TortoiseSVN directly from Visual Studio.
 Make it easy to show History and Blame

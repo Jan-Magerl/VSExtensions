@@ -11,10 +11,10 @@ namespace TortoiseVS.Commands
     using System.Globalization;
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Interop;
-
-    /// <summary>
-    /// Command handler
-    /// </summary>
+    using Tortoise;
+    using VSHelper;    /// <summary>
+                       /// Command handler
+                       /// </summary>
     internal sealed class LogCommand
     {
         /// <summary>
@@ -93,17 +93,9 @@ namespace TortoiseVS.Commands
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "LogCommand";
-
-            // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                this.ServiceProvider,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            string file = Studio.DTE2.ActiveDocument.FullName;
+            int line = Studio.Instance.Line;
+            TortoiseProc.Instance.Log(file);
         }
     }
 }

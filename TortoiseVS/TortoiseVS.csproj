@@ -71,6 +71,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\About.png" />
+    <Content Include="Resources\Log.png" />
+    <Content Include="Resources\Refresh.png" />
     <None Include="Key.snk" />
     <Content Include="LICENSE">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -191,6 +194,7 @@
   <ItemGroup>
     <VSCTCompile Include="CommandPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +210,7 @@
     <Content Include="Commands\Resources\UnloadUpdateBuild.png" />
     <Content Include="Commands\Resources\UnloadUpdateCommand.png" />
     <Content Include="Commands\Resources\UpdateRestartCommand.png" />
+    <Content Include="Resources\Blame.png" />
     <Content Include="Resources\BlameCommand.png" />
     <Content Include="Resources\BlameCommandPackage.ico" />
   </ItemGroup>

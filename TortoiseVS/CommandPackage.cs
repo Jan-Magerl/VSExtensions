@@ -65,8 +65,8 @@ namespace TortoiseVS
             TortoiseVS.Commands.BlameSolutionExplorerCommand.Initialize(this);
             TortoiseVS.Commands.UnloadUpdateCommand.Initialize(this);
             TortoiseVS.Commands.UnloadUpdateBuild.Initialize(this);
-            TortoiseVS.Commands.AboutCommand.Initialize(this);
             TortoiseVS.Commands.UpdateRestartCommand.Initialize(this);
+            TortoiseVS.Commands.AboutCommand.Initialize(this);
         }
     }
 }

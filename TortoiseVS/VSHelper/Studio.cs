@@ -10,7 +10,7 @@
     using Microsoft.VisualStudio.Shell;
     using Microsoft.VisualStudio.Shell.Interop;
     using Process = System.Diagnostics.Process;
-
+    using Windows;
     internal class Studio
     {
         private static readonly Lazy<Studio> InstanceValue = new Lazy<Studio>(() => new Studio());
