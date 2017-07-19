@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="TortoiseVS17.BIS-IT.bbf75fce-086f-4a0b-a519-62e3a8252877" Version="1.0" Language="en-US" Publisher="Magerl-IT" />
+    <DisplayName>TortoiseVS17</DisplayName>
+    <Description xml:space="preserve">Lightweight Extension to use TortoiseSVN directly from Visual Studio.
+Make it easy to show History and Blame
+</Description>
+    <License>LICENSE</License>
+    <Tags>Tortoise, Svn, TortoiseSvn, Subversion, SourceControl, History, Log, Blame</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

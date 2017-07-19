@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Commands package="guidCommandPackage">
+    <Menus>
+      <Menu guid="guidCommandPackageCmdSet" id="TopLevelMenu" priority="0x700" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>TestMenu</ButtonText>
+          <CommandName>TortoiseVS</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+    <Groups>
+      <Group guid="guidCommandPackageCmdSetSolutionExplorer" id="MyMenuGroup" priority="0x0300">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+      </Group>
+      <Group guid="guidCommandPackageCmdSetCodeWin" id="MyMenuGroup" priority="0x0000">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
+      </Group>
+      <Group guid="guidCommandPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+        <!--<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />-->
+        <Parent guid="guidCommandPackageCmdSet" id="TopLevelMenu" />
+      </Group>
+    </Groups>
+    <Buttons>
+      <Button guid="guidCommandPackageCmdSetCodeWin" id="BlameCommandId" priority="0x0000" type="Button">
+        <Parent guid="guidCommandPackageCmdSetCodeWin" id="MyMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Blame</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidCommandPackageCmdSetSolutionExplorer" id="cmdidBlameSolutionExplorerCommand" priority="0x0100" type="Button">
+        <Parent guid="guidCommandPackageCmdSetSolutionExplorer" id="MyMenuGroup" />
+        <Icon guid="guidImages2" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Blame</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidCommandPackageCmdSetCodeWin" id="cmdidLogCommand" priority="0x0001" type="Button">
+        <Parent guid="guidCommandPackageCmdSetCodeWin" id="MyMenuGroup" />
+        <Icon guid="guidImages1" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Show Log</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidCommandPackageCmdSet" id="cmdidUnloadUpdateCommand" priority="0x0200" type="Button">
+        <Parent guid="guidCommandPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages3" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Update Solution (Unloaded)</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidCommandPackageCmdSet" id="cmdidUnloadUpdateBuild" priority="0x0210" type="Button">
+        <Parent guid="guidCommandPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages4" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Update + Build Solution (Unloaded)</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidCommandPackageCmdSet" id="cmdidAboutCommand" priority="0x9000" type="Button">
+        <Parent guid="guidCommandPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages5" id="bmpPic1" />
+        <Strings>
+          <ButtonText>About</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidCommandPackageCmdSet" id="cmdidUpdateRestartCommand" priority="0x0220" type="Button">
+        <Parent guid="guidCommandPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages6" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Update + Restart Studio</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\Blame.png" usedList="bmpPic1" />
+      <Bitmap guid="guidImages1" href="Resources\Log.png" usedList="bmpPic1" />
+      <Bitmap guid="guidImages2" href="Resources\Blame.png" usedList="bmpPic1" />
+      <Bitmap guid="guidImages3" href="Resources\Refresh.png" usedList="bmpPic1" />
+      <Bitmap guid="guidImages4" href="Resources\Refresh.png" usedList="bmpPic1" />
+      <Bitmap guid="guidImages5" href="Resources\About.png" usedList="bmpPic1" />
+      <Bitmap guid="guidImages6" href="Resources\Refresh.png" usedList="bmpPic1" />
+    </Bitmaps>
+  </Commands>
+  <KeyBindings>
+    <KeyBinding guid="guidCommandPackageCmdSetCodeWin" id="BlameCommandId" key1="B" mod1="ALT" editor="guidVSStd97" />
+    <KeyBinding guid="guidCommandPackageCmdSetCodeWin" id="cmdidLogCommand" key1="L" mod1="ALT" editor="guidVSStd97" />
+  </KeyBindings>
+  <Symbols>
+    <GuidSymbol name="guidCommandPackage" value="{534d4992-b99b-4e4d-9d14-0ba5eb516fcd}" />
+
+    <GuidSymbol name="guidCommandPackageCmdSetCodeWin" value="{e82f9db2-b6df-4f26-a600-0d33787ae098}">
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="BlameCommandId" value="0x0100" />
+      <IDSymbol name="cmdidLogCommand" value="0x0256" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{99fd3842-9815-467c-9bc1-c4e79980227b}">
+      <IDSymbol name="bmpPic1" value="1" />
+    </GuidSymbol>
+
+    <GuidSymbol value="{17ab68aa-fc20-46b0-b36d-a4c2f6c39f33}" name="guidCommandPackageCmdSetSolutionExplorer">
+      <IDSymbol value="4128" name="MyMenuGroup" />
+      <IDSymbol value="4129" name="cmdidBlameSolutionExplorerCommand" />
+    </GuidSymbol>
+
+    <GuidSymbol value="{fa08b65b-ee22-4ec1-b0cc-d725cb1327a5}" name="guidImages1">
+      <IDSymbol name="bmpPic1" value="1" />
+
+    </GuidSymbol>
+
+    <GuidSymbol value="{88be335a-82a8-4998-bee4-10d8e9ddffe8}" name="guidImages2">
+      <IDSymbol name="bmpPic1" value="1" />
+
+    </GuidSymbol>
+
+    <GuidSymbol value="{eb84b385-a980-4593-9e21-fef0ad31add1}" name="guidCommandPackageCmdSet">
+      <IDSymbol name="TopLevelMenu" value="0x1022" />
+      <IDSymbol value="4128" name="MyMenuGroup" />
+      <IDSymbol value="256" name="cmdidUnloadUpdateCommand" />
+      <IDSymbol value="0x1021" name="cmdidUnloadUpdateBuild" />
+      <IDSymbol value="4131" name="cmdidAboutCommand" />
+      <IDSymbol value="4132" name="cmdidUpdateRestartCommand" />
+    </GuidSymbol>
+
+    <GuidSymbol value="{d1deaa35-c7cf-4ddf-b1e7-81a5aa09aedf}" name="guidImages3">
+      <IDSymbol name="bmpPic1" value="1" />
+    </GuidSymbol>
+
+    <GuidSymbol value="{53ceffdd-115f-4192-a15e-e9299816e5cd}" name="guidImages4">
+      <IDSymbol name="bmpPic1" value="1" />
+    </GuidSymbol>
+
+    <GuidSymbol value="{542c868d-3ae2-48b5-94c3-a00c75c032a1}" name="guidImages5">
+      <IDSymbol name="bmpPic1" value="1" />
+    </GuidSymbol>
+
+    <GuidSymbol value="{5d60221d-460f-45e1-acdb-e83f2e6317a5}" name="guidImages6">
+      <IDSymbol name="bmpPic1" value="1" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
